@@ -13,8 +13,10 @@ exports.api = eventEmitter
 
 exports.run = function(){
     http.createServer(async (client_req, client_res) => {
-        eventEmitter.emit('request', client_req, client_res, async () => {
-            if(!client_res.finished){
+        
+        
+        eventEmitter.emit('request', client_req, client_res, async done => {
+            if(!done){
                 let ip = client_req.headers['cf-connecting-ip'] || client_req.socket.remoteAddress;
                 let domain = client_req.headers['host'];
                 let path = client_req.url;
