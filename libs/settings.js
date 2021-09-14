@@ -40,7 +40,9 @@ exports.run = function(){
             dns: []
         }
 
-        fetch('http://'+domainObject.name+'/api/v1/server/checkDomain').then(data => data.text()).then(data => {
+        fetch('https://'+domainObject.name+'/api/v1/server/checkDomain').then(data => data.text()).then(data => {
+            console.log(data, 'http://'+domainObject.name+'/api/v1/server/checkDomain')
+              
             if(data === 'Hello From Phaze! REEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEE'){
                 let domains = JSON.parse(fs.readFileSync('data/domains.json'));
                 domains.data.push(domainObject);
