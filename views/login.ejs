@@ -1,0 +1,56 @@
+<html>
+    <head>
+        <title>PhazeDNS</title>
+
+        <style>
+            body{
+                background: #051622;
+                margin: 0;
+                padding: 0;
+            }
+
+            .login{
+                text-align: center;
+                background: #1BA098;
+                position: fixed;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                padding: 20px;
+                border-radius: 5px;
+                font-size: 20px;
+                border: 20px solid #DEB992;
+            }
+
+            .text{
+                background: none;
+                border: none;
+                border-bottom: black 1px solid;
+                outline: none;
+                font-size: 17px;
+            }
+
+            button{
+                background: none;
+                border: black 1px solid;
+                outline: none;
+                font-size: 17px;
+            }
+        </style>
+    </head>
+    <body>
+        <canvas id="canvas"></canvas>
+
+        <div class="login">
+            Enter Login<br><br>
+            <input type="text" id="username" autocomplete="false" autocorrect="false" placeholder="Username" class="text"><br><br>
+            <input type="password" id="password" autocomplete="false" autocorrect="false" placeholder="Password" class="text"><br><br>
+            <button onclick="login()">Login</button><br>
+            <span id="error"></span>
+        </div>
+
+        <script>let session = '<%= session %>'</script>
+        <script src="/js/stars.js"></script>
+        <script src="/js/login.js"></script>
+    </body>
+</html>
