@@ -27,7 +27,7 @@ exports.run = function(){
                 logger.info(ip+' Requested '+method+' '+domain+path, client_req.headers['cf-ipcountry']);
         
                 analytics.request();
-                if(ips.check(ip))analytics.visitor();
+                if(!ips.check(ip))analytics.visitor();
         
                 if(client_req.headers['cf-ipcountry'])analytics.country(client_req.headers['cf-ipcountry'])
         
