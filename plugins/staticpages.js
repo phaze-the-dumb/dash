@@ -92,7 +92,7 @@ let start = () => {
         let path = client_req.url;
         let method = client_req.method;
 
-        if(!config.find(x => x.domain === domain && x.path === path))return;
+        if(!config.find(x => x.domain === domain && x.path === path))return done(false);
 
         let page = config.find(x => x.domain === domain && x.path === path);
 
@@ -110,6 +110,6 @@ let start = () => {
         client_res.writeHead(200, {'Content-Type': 'text/html'});
         client_res.end(fs.readFileSync('pluginfiles/staticpages/'+page.id));
 
-        done()
+        done(true)
     })
 }
