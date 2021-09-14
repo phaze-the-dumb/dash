@@ -51,7 +51,12 @@ exports.run = function(){
 
                 res.send('ok');
             } else{
-                res.send('Please point the domain to the server before adding it');
+                let domains = JSON.parse(fs.readFileSync('data/domains.json'));
+                domains.data.push(domainObject);
+
+                fs.writeFileSync('data/domains.json', JSON.stringify(domains));
+
+                res.send('ok');
             }
         })
     })
